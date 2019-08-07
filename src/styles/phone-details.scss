@@ -1,0 +1,54 @@
+.phone-details {
+  padding: 20px;
+}
+
+.phone-details__description-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.phone-details__header {
+  color: orange;
+  margin-top: 50px;
+}
+
+.phone-details__images-wrapper {
+  width: 400px;
+  height: 400px;
+
+  margin-right: 20px;
+}
+
+.phone-details__extra-images {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.phone-details__extra-images img {
+  width: 50px;
+  height: 50px;
+  margin: 0 5px 0;
+}
+
+.phone-details__description {
+  max-width: 500px;
+}
+
+.phone-details__details-header {
+  margin: 100px 0 0 40vw;
+  color: orange;
+}
+
+.phone-details__details {
+  padding: 0 50px 0;
+}
+
+.phone-details__details h3 {
+  color: grey;
+}
+
+.phone-details__details div {
+  padding-left: 5px;
+}

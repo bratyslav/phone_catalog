@@ -1,0 +1,24 @@
+import React from 'react';
+import Phone from './Phone';
+import PhoneDetailsPage from './PhoneDetailsPage';
+
+const PhoneCatalog = ({ phones, phoneId }) => {
+  const phone = phones.find(phone => phone.id === phoneId);
+  if (phoneId && !phone) {
+    return (
+      <h1 className="not-found-message">Phone Was Not Found</h1>
+    );
+  };
+
+  return (
+    <div>
+      {
+        phoneId
+          ? <PhoneDetailsPage phone={phone} />
+          : phones.map(phone => <Phone phone={phone} key={phone.id} />)
+      }
+    </div>
+  );
+};
+
+export default PhoneCatalog;
