@@ -12,19 +12,25 @@ const PhoneCatalog = ({ phones, phoneId, setFilter }) => {
 
   return (
     <div>
-      <div className="search">
-        <input
-          type="text"
-          placeholder="Search"
-          onChange={setFilter}
-        />
-        <hr />
-      </div>
-
       {
         phoneId
           ? <PhoneDetailsPage phone={phone} />
-          : phones.map(phone => <Phone phone={phone} key={phone.id} />)
+          : (
+            <div>
+              <label>
+                <div className="search">
+                  <input
+                    type="text"
+                    placeholder="Search"
+                    onChange={setFilter}
+                  />
+                  <hr />
+                </div>
+              </label>
+
+              {phones.map(phone => <Phone phone={phone} key={phone.id} />)}
+            </div>
+          )
       }
     </div>
   );
