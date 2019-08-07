@@ -31,7 +31,11 @@ class PhonesPage extends Component {
       <main>
         {
           loaded
-            ? <PhoneCatalog phones={phones.filter(this.filter)} phoneId={phoneId} />
+            ? <PhoneCatalog
+                phones={phones.filter(this.filter)}
+                phoneId={phoneId}
+                setFilter={this.props.setFilter}
+              />
             : <Loader />
         }
       </main>

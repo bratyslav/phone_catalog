@@ -44,17 +44,6 @@ class App extends Component {
                 Catalog
               </NavLink>
             </li>
-
-            <li>
-              <div className="navigation_search">
-                <input
-                  type="text"
-                  placeholder="Search"
-                  onChange={this.setFilter}
-                />
-                <hr />
-              </div>
-            </li>
           </ul>
         </nav>
 
@@ -63,7 +52,7 @@ class App extends Component {
         <Switch>
           <Route path="/" exact component={HomePage} />
           <Route path="/phones/:phoneId?" render={(params) => (
-            <PhonesPage filter={filter} {...params} />)
+            <PhonesPage filter={filter} setFilter={this.setFilter} {...params} />)
           } />
           <Route component={NotFoundPage} />
         </Switch>

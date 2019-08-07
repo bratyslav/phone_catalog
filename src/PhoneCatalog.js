@@ -2,7 +2,7 @@ import React from 'react';
 import Phone from './Phone';
 import PhoneDetailsPage from './PhoneDetailsPage';
 
-const PhoneCatalog = ({ phones, phoneId }) => {
+const PhoneCatalog = ({ phones, phoneId, setFilter }) => {
   const phone = phones.find(phone => phone.id === phoneId);
   if (phoneId && !phone) {
     return (
@@ -12,6 +12,15 @@ const PhoneCatalog = ({ phones, phoneId }) => {
 
   return (
     <div>
+      <div className="search">
+        <input
+          type="text"
+          placeholder="Search"
+          onChange={setFilter}
+        />
+        <hr />
+      </div>
+
       {
         phoneId
           ? <PhoneDetailsPage phone={phone} />
