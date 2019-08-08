@@ -54,9 +54,8 @@ class App extends Component {
 
   deleteItemFromBasket = (phone) => {
     this.setState((prevState) => ({
-      basketItems: prevState.basketItems.filter(item => (
-        item.phone !== phone
-      ))}
+      basketItems: prevState.basketItems
+        .filter(item => (item.phone !== phone))}
     ));
   };
 

@@ -1,40 +1,37 @@
 import React from 'react';
 
-class Basket extends React.Component {
-  constructor(props) {
-    super(props);
+const Basket = ({ basketItems, deleteItemFromBasket }) => (
+  basketItems[0]
 
-    this.state = {
+    ? <main className="basket__main">
+        <h1 className="basket__header">Basket</h1>
 
-    };
-  };
+        {basketItems.map(item => (
+          <div key={item.phone}>
+            <div className="basket__item">
+              <img src={require(`../${item.imageUrl}`)} />
 
-  render() {
-    const { basketItems, deleteItemFromBasket } = this.props;
+              <h2 className="basket__phone-name">{item.phone}</h2>
 
-    return (
-      basketItems[0] ?
-      basketItems.map(item => (
-        <div key={item.phone}>
-          <div className="basket__item">
-            <img src={require(`../${item.imageUrl}`)} />
-            <h2 className="basket__phone-name">{item.phone}</h2>
-            <div className="basket__quantity">{item.quantity}</div>
-            <button
-              className="basket__delete-button"
-              onClick={() => deleteItemFromBasket(item.phone)}
-            >
-              ×
-            </button>
+              <div className="basket__quantity">{item.quantity}</div>
+
+              <button
+                className="basket__delete-button"
+                onClick={() => deleteItemFromBasket(item.phone)}
+              >
+                ×
+              </button>
+            </div>
+            <hr className="basket__underline"/>
           </div>
-          <hr className="basket__underline"/>
-        </div>
-      ))
-      : <div className="basket__empty">
-          <span>Basket is Empty</span>
-        </div>
-    );
-  };
-};
+        ))}
+      </main>
+
+
+
+    : <div className="basket__empty">
+        <span>Basket is Empty</span>
+      </div>
+);
 
 export default Basket;
