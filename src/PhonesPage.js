@@ -26,6 +26,7 @@ class PhonesPage extends Component {
   render() {
     const { phones, loaded } = this.state;
     const { phoneId } = this.props.match.params;
+    const { setItemToBasket, setFilter } = this.props;
     
     return (
       <main>
@@ -34,7 +35,8 @@ class PhonesPage extends Component {
             ? <PhoneCatalog
                 phones={phones.filter(this.filter)}
                 phoneId={phoneId}
-                setFilter={this.props.setFilter}
+                setFilter={setFilter}
+                setItemToBasket={setItemToBasket}
               />
             : <Loader />
         }

@@ -24,13 +24,17 @@ class PhoneDetailsPage extends Component {
 
   render() {
     const { loaded, phoneDetails } = this.state;
-    const { phone } = this.props;
+    const { phone, setItemToBasket } = this.props;
 
     return (
       <div>
         {
           loaded
-            ? <PhoneDetails phoneDetails={phoneDetails} phone={phone} />
+            ? <PhoneDetails
+                phoneDetails={phoneDetails}
+                phone={phone}
+                setItemToBasket={setItemToBasket}
+              />
             : <Loader/>
         }
       </div>

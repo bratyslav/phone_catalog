@@ -60,7 +60,7 @@ class PhoneDetails extends Component {
 
   render() {
     const { phoneDetails, imgUrl } = this.state;
-    const { phone } = this.props;
+    const { phone, setItemToBasket } = this.props;
 
     return (
       <div className="phone-details">
@@ -96,6 +96,12 @@ class PhoneDetails extends Component {
             <div className="phone-details__description" align="justify">
               {phoneDetails.description}
             </div>
+            <button
+              className="phone-details__add-to-basket"
+              onClick={() => setItemToBasket(phone.name, imgUrl)}
+            >
+              Add to Basket
+            </button>
           </div>
         </section>
 

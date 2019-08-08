@@ -4,22 +4,63 @@ import { Route, NavLink, Switch } from 'react-router-dom';
 import HomePage from './HomePage';
 import PhonesPage from './PhonesPage';
 import NotFoundPage from './NotFoundPage';
+import Basket from './Basket';
 
 class App extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      filter: ''
+      filter: '',
+      basketItems: []
     };
+  };
+
+  setItemToBasket = (phoneName, imgUrl) => {
+    this.state.basketItems.find(item => item.phone === phoneName)
+    ? this.setState((prevState) => (
+        {
+          basketItems: [
+            ...prevState.basketItems.filter(item => (
+              item.phone !== phoneName
+            )),
+            {
+              quantity: prevState.basketItems.find(item => item.phone === phoneName).quantity + 1,
+              phone: phoneName,
+              imageUrl: imgUrl
+            }
+          ]
+
+        }
+      ))
+    : this.setState((prevState) => (
+        {
+          basketItems: [
+            ...prevState.basketItems,
+            {
+              quantity: 1,
+              phone: phoneName,
+              imageUrl: imgUrl
+            }
+          ]
+        }
+      ));
   };
 
   setFilter = (event) => {
     this.setState({ filter: event.target.value });
   };
 
+  deleteItemFromBasket = (phone) => {
+    this.setState((prevState) => ({
+      basketItems: prevState.basketItems.filter(item => (
+        item.phone !== phone
+      ))}
+    ));
+  };
+
   render() {
-    const { filter } = this.state;
+    const { filter, basketItems } = this.state;
 
     return (
       <div>
@@ -44,6 +85,16 @@ class App extends Component {
                 Catalog
               </NavLink>
             </li>
+
+            <li>
+              <NavLink
+                className='navigation__link'
+                activeClassName='navigation__link--is-active'
+                to="/basket"
+              >
+                Basket
+              </NavLink>
+            </li>
           </ul>
         </nav>
 
@@ -51,8 +102,20 @@ class App extends Component {
 
         <Switch>
           <Route path="/" exact component={HomePage} />
+          <Route path="/basket" render={(params) => (
+            <Basket
+              basketItems={basketItems}
+              deleteItemFromBasket={this.deleteItemFromBasket}
+              {...params}
+            />
+          )} />
           <Route path="/phones/:phoneId?" render={(params) => (
-            <PhonesPage filter={filter} setFilter={this.setFilter} {...params} />)
+            <PhonesPage
+              filter={filter}
+              setFilter={this.setFilter}
+              setItemToBasket={this.setItemToBasket}
+              {...params}
+            />)
           } />
           <Route component={NotFoundPage} />
         </Switch>
@@ -62,3 +125,4 @@ class App extends Component {
 }
 
 export default App;
+
