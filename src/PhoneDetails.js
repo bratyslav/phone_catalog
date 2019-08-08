@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class PhoneDetails extends Component {
   constructor(props) {
@@ -12,6 +13,7 @@ class PhoneDetails extends Component {
 
   componentDidMount() {
     const { phoneDetails, phone } = this.props;
+
     this.setState({
       phoneDetails: phoneDetails,
       imgUrl: phone.imageUrl
@@ -28,7 +30,7 @@ class PhoneDetails extends Component {
       && detailHeader !== 'availability'
       && phoneDetails[detailHeader].length !== 0
       && Object.keys(phoneDetails[detailHeader]).length !== 0)
-    {
+    { // отфильтровать все, что не касается деталей
       return detailHeader;
     };
   };
@@ -37,6 +39,7 @@ class PhoneDetails extends Component {
     const { phoneDetails } = this.state;
 
     if (typeof phoneDetails[detailHeader] === 'string') {
+      // или строка
       return (
         <div>
           {phoneDetails[detailHeader]}
@@ -44,7 +47,7 @@ class PhoneDetails extends Component {
       );
     };
     
-    return (
+    return ( // или объект
       Object.keys(phoneDetails[detailHeader])
         .map(detailName => (
           <div key={detailName}>
@@ -129,6 +132,11 @@ class PhoneDetails extends Component {
       </div>
     );
   };
+};
+
+PhoneDetails.propTypes = {
+  phone: PropTypes.object.isRequired,
+  setItemToBasket: PropTypes.func.isRequired
 };
 
 export default PhoneDetails;

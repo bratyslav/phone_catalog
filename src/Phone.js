@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const Phone = ({ phone }) => {
   return (
@@ -19,6 +20,10 @@ const Phone = ({ phone }) => {
       </div>
     </div>
   );
+};
+
+Phone.propTypes = {
+  phone: PropTypes.object.isRequired
 };
 
 export default Phone;

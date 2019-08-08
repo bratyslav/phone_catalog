@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { getPhoneDetails } from './api/data';
 import Loader from './Loader';
 import PhoneDetails from './PhoneDetails';
+import PropTypes from 'prop-types';
 
 class PhoneDetailsPage extends Component {
   constructor(props) {
@@ -40,6 +41,11 @@ class PhoneDetailsPage extends Component {
       </div>
     );
   };
+};
+
+PhoneDetailsPage.propTypes = {
+  phone: PropTypes.object.isRequired,
+  setItemToBasket: PropTypes.func.isRequired
 };
 
 export default PhoneDetailsPage;

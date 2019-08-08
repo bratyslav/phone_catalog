@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Basket = ({ basketItems, deleteItemFromBasket }) => (
   basketItems[0]
@@ -33,5 +34,10 @@ const Basket = ({ basketItems, deleteItemFromBasket }) => (
         <span>Basket is Empty</span>
       </div>
 );
+
+Basket.propTypes = {
+  basketItems: PropTypes.array.isRequired,
+  deleteItemFromBasket: PropTypes.func.isRequired
+};
 
 export default Basket;

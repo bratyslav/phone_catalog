@@ -2,6 +2,7 @@ import React from 'react';
 import Phone from './Phone';
 import PhoneDetailsPage from './PhoneDetailsPage';
 import Filter from './Filter';
+import PropTypes from 'prop-types';
 
 class PhoneCatalog extends React.Component {
   constructor(props) {
@@ -22,7 +23,7 @@ class PhoneCatalog extends React.Component {
         return a.name.localeCompare(b.name)
 
       case 'Newest':
-        return a.age -  b.age;
+        return a.age - b.age;
 
       default:
         return true;
@@ -32,6 +33,7 @@ class PhoneCatalog extends React.Component {
   render() {
     const { phones, phoneId, setFilter, setItemToBasket } = this.props;
     const phone = phones.find(phone => phone.id === phoneId);
+    
     if (phoneId && !phone) {
       return (
         <h1 className="not-found-message">Phone Was Not Found</h1>
@@ -57,6 +59,13 @@ class PhoneCatalog extends React.Component {
       </div>
     );
   };
+};
+
+PhoneCatalog.propTypes = {
+  phones: PropTypes.array.isRequired,
+  phoneId: PropTypes.string,
+  setFilter: PropTypes.func.isRequired,
+  setItemToBasket: PropTypes.func.isRequired
 };
 
 export default PhoneCatalog;
