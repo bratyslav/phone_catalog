@@ -17,34 +17,35 @@ class App extends Component {
   };
 
   setItemToBasket = (phoneName, imgUrl) => {
-    this.state.basketItems.find(item => item.phone === phoneName)
-    ? this.setState((prevState) => (
-        {
-          basketItems: [
-            ...prevState.basketItems.filter(item => (
-              item.phone !== phoneName
-            )),
-            {
-              quantity: prevState.basketItems.find(item => item.phone === phoneName).quantity + 1,
-              phone: phoneName,
-              imageUrl: imgUrl
-            }
-          ]
+    if (this.state.basketItems.find(item => item.phone === phoneName)) {
+      //  если такой товар уже есть в корзине
+      this.setState((prevState) => ({
+        basketItems: [
+          ...prevState.basketItems
+            .filter(item => (item.phone !== phoneName)),
+          // переписать все кроме него
+          {
+            quantity: prevState.basketItems
+              .find(item => item.phone === phoneName).quantity + 1,
+              // в нем увеличить количество на 1
+            phone: phoneName,
+            imageUrl: imgUrl
+          }
+        ]
+      }))
 
-        }
-      ))
-    : this.setState((prevState) => (
-        {
-          basketItems: [
-            ...prevState.basketItems,
-            {
-              quantity: 1,
-              phone: phoneName,
-              imageUrl: imgUrl
-            }
-          ]
-        }
-      ));
+    } else { // иначе записать товар
+      this.setState((prevState) => ({
+        basketItems: [
+          ...prevState.basketItems,
+          {
+            quantity: 1,
+            phone: phoneName,
+            imageUrl: imgUrl
+          }
+        ]
+      }));
+    };
   };
 
   setFilter = (event) => {
