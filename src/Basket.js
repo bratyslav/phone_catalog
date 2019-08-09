@@ -1,38 +1,29 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import BasketItem from './BasketItem';
 
-const Basket = ({ basketItems, deleteItemFromBasket }) => (
+const Basket = ({ basketItems, deleteItemFromBasket, changeQuantityInBasket }) => (
   basketItems[0]
+    ? (
+        <main className="basket__main">
+          <h1 className="basket__header">Basket</h1>
 
-    ? <main className="basket__main">
-        <h1 className="basket__header">Basket</h1>
+          {basketItems.map(item => (
+            <BasketItem
+              key={item.phone}
+              item={item}
+              deleteItemFromBasket={deleteItemFromBasket}
+              changeQuantityInBasket={changeQuantityInBasket}
+            />
+          ))}
+        </main>
+      )
 
-        {basketItems.map(item => (
-          <div key={item.phone}>
-            <div className="basket__item">
-              <img src={require(`../${item.imageUrl}`)} />
-
-              <h2 className="basket__phone-name">{item.phone}</h2>
-
-              <div className="basket__quantity">{item.quantity}</div>
-
-              <button
-                className="basket__delete-button"
-                onClick={() => deleteItemFromBasket(item.phone)}
-              >
-                ×
-              </button>
-            </div>
-            <hr className="basket__underline"/>
-          </div>
-        ))}
-      </main>
-
-
-
-    : <div className="basket__empty">
-        <span>Basket is Empty</span>
-      </div>
+    : (
+        <div className="basket__empty">
+          Basket is Empty
+        </div>
+      )
 );
 
 Basket.propTypes = {

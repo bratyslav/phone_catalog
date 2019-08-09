@@ -59,6 +59,40 @@ class App extends Component {
     ));
   };
 
+  changeQuantityInBasket = (phoneName, imgUrl, direction) => {
+    this.setState((prevState) => {
+      let newQuantity = prevState.basketItems
+        .find(item => item.phone === phoneName).quantity;
+
+      if (direction === 1) {
+        newQuantity++;
+      } else if (newQuantity > 1) {
+        newQuantity--;
+      };
+
+      return {
+        basketItems: [
+          ...prevState.basketItems
+            .map(item => {
+              if (item.phone === phoneName) {
+                return {
+                  quantity: newQuantity,
+                  phone: phoneName,
+                  imageUrl: imgUrl
+                };
+              } else {
+                return {
+                  quantity: item.quantity,
+                  phone: item.phone,
+                  imageUrl: item.imageUrl
+                };
+              };  
+            })
+        ]
+      };
+    });
+  };
+
   render() {
     const { filter, basketItems } = this.state;
 
@@ -106,6 +140,7 @@ class App extends Component {
             <Basket
               basketItems={basketItems}
               deleteItemFromBasket={this.deleteItemFromBasket}
+              changeQuantityInBasket={this.changeQuantityInBasket}
               {...params}
             />
           )} />

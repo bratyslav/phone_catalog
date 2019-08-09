@@ -40,9 +40,29 @@
   color: orange;
 }
 
-@media (max-width: 1040px) {
+@media (max-width: 1080px) {
   .phone {
     margin: 20px;
+  }
+}
+
+@media (max-width: 350px) {
+  .phone {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .phone__image {
+    height: 200px;
+    width: 200px;
+  }
+}
+
+@media (max-width: 280px) {
+  .phone__image {
+    height: 150px;
+    width: 150px;
   }
 }
 

@@ -31,3 +31,13 @@
 .navigation__link--is-active {
   color: orange;
 }
+
+@media (max-width: 400px) {
+  .navigation {
+    display: block;
+    padding-left: 0;
+  }
+  .navigation__link {
+    padding: 5px 15px 5px;
+  }
+}
