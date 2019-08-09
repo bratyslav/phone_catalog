@@ -22,16 +22,19 @@ class PhoneDetails extends Component {
 
   detailsFilter = (detailHeader) => {
     const { phoneDetails } = this.state;
+    const details = [
+      'additionalFeatures',
+      'android',
+      'battery',
+      'connectivity',
+      'display',
+      'hardware',
+      'sizeAndWeight',
+      'storage',
+      'camera'
+    ]
 
-    if ((detailHeader === 'additionalFeatures'
-      || detailHeader === 'android'
-      || detailHeader === 'battery'
-      || detailHeader === 'connectivity'
-      || detailHeader === 'display'
-      || detailHeader === 'hardware'
-      || detailHeader === 'sizeAndWeight'
-      || detailHeader === 'storage'
-      || detailHeader === 'camera')
+    if ( details.includes(detailHeader)
       && phoneDetails[detailHeader].length !== 0
       && Object.keys(phoneDetails[detailHeader]).length !== 0)
     { // отфильтровать все, что не касается деталей

@@ -52,3 +52,13 @@
     margin-right: auto;
   }
 }
+
+@media (max-width: 500px) {
+  .search input {
+    width: 100px;
+  }
+
+  .search__wrapper select {
+    font-size: 14px;
+  }
+}
