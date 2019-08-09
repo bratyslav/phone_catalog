@@ -7,7 +7,8 @@ class PhoneDetails extends Component {
 
     this.state = {
       phoneDetails: [],
-      imgUrl: ''
+      imgUrl: '',
+      added: false
     };
   };
 
@@ -68,8 +69,14 @@ class PhoneDetails extends Component {
     this.setState({ imgUrl: imageUrl });
   };
 
+  showMessage = () => {
+    this.setState({ added: true });
+
+    setTimeout(() => {this.setState({ added: false })}, 700);
+  };
+
   render() {
-    const { phoneDetails, imgUrl } = this.state;
+    const { phoneDetails, imgUrl, added } = this.state;
     const { phone, setItemToBasket } = this.props;
 
     return (
@@ -108,10 +115,30 @@ class PhoneDetails extends Component {
             </div>
             <button
               className="phone-details__add-to-basket"
-              onClick={() => setItemToBasket(phone.name, imgUrl)}
+              onClick={() => {
+                setItemToBasket(phone.name, imgUrl);
+                this.showMessage();
+              }}
             >
               Add to Basket
             </button>
+
+            <div
+              className={
+                added
+                  ? 'phone-details__message-added--triangle'
+                  : 'phone-details__message-added--hidden'
+              }
+            />
+            <div
+              className={
+                added
+                  ? 'phone-details__message-added--visible'
+                  : 'phone-details__message-added--hidden'
+              }
+            >
+              Added!
+            </div>
           </div>
         </section>
 

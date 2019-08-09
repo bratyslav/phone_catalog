@@ -93,6 +93,12 @@ class App extends Component {
     });
   };
 
+  getFullQuantityInBasket = () => {
+    const { basketItems } = this.state;
+
+    return basketItems.reduce((total, current) => total + current.quantity, 0);
+  };
+
   render() {
     const { filter, basketItems } = this.state;
 
@@ -126,7 +132,11 @@ class App extends Component {
                 activeClassName='navigation__link--is-active'
                 to="/basket"
               >
-                Basket
+                Basket {
+                  basketItems.length === 0
+                  ? ''
+                  : `(${this.getFullQuantityInBasket()})`
+                }
               </NavLink>
             </li>
           </ul>

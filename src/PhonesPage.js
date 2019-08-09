@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { getPhoneCatalog } from './api/data';
-import Loader from './Loader';
 import PhoneCatalog from './PhoneCatalog';
 import PropTypes from 'prop-types';
 
@@ -39,7 +38,7 @@ class PhonesPage extends Component {
                 setFilter={setFilter}
                 setItemToBasket={setItemToBasket}
               />
-            : <Loader />
+            : <div className="loader"></div>
         }
       </main>
     );

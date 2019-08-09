@@ -64,10 +64,34 @@
   border-radius: 5px;
   border-style: solid;
   background-color: white;
+  cursor: pointer;
 }
 
 .phone-details__add-to-basket:focus {
   outline: none;
+}
+
+.phone-details__message-added--hidden {
+  color: white;
+}
+
+.phone-details__message-added--visible {
+  font-size: 20px;
+  color: white;
+  background-color: black;
+  padding: 7px;
+  border-radius: 5px;
+  border-top-left-radius: 3px;
+  width: 100px;
+}
+
+.phone-details__message-added--triangle {
+  margin-left: 2px;
+  border-color: white;
+  border: 20px solid transparent;
+  border-bottom: 20px solid black;
+  width: 0;
+  transition: border-bottom 300ms ease-out;
 }
 
 .phone-details__add-to-basket:hover {
