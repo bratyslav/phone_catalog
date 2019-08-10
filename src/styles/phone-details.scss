@@ -101,6 +101,24 @@
 
 
 
+@media (min-width: 1600px) {
+  .phone-details__images-wrapper {
+    width: 500px;
+    height: 500px;
+  }
+
+  .phone-details__images-wrapper>img {
+    width: 500px;
+    height: 500px;
+  }
+
+  .phone-details__description {
+    max-width: 800px;
+  }
+}
+
+
+
 @media (max-width: 700px) {
   .phone-details__description-wrapper {
     flex-direction: column;
