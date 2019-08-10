@@ -29,7 +29,7 @@
 .phone-details__extra-images img {
   width: 50px;
   height: 50px;
-  margin: 0 5px 0;
+  padding: 0 5px 0;
 }
 
 .phone-details__description {
@@ -37,7 +37,7 @@
 }
 
 .phone-details__details-header {
-  margin: 100px 0 0 40vw;
+  margin: 100px 0 0 20px;
   color: orange;
 }
 
@@ -99,6 +99,8 @@
   background-color: orange;
 }
 
+
+
 @media (max-width: 700px) {
   .phone-details__description-wrapper {
     flex-direction: column;
@@ -107,5 +109,51 @@
 
   .phone-details__images-wrapper {
     margin-bottom: 50px;
+  }
+}
+
+
+
+@media (max-width: 500px) {
+  .phone-details__extra-images img {
+    width: 30px;
+    height: 30px;
+    padding: 0 3px 0;
+  }
+
+  .phone-details__images-wrapper {
+    width: 300px;
+    height: 300px;
+  }
+
+  .phone-details__images-wrapper>img {
+    width: 300px;
+    height: 300px;
+  }
+
+  .phone-details__add-to-basket {
+    margin-left: calc(50vw  - 25px - 246px / 2);
+  }
+
+  .phone-details__details {
+    padding: 0 20px 0;
+  }
+}
+
+
+
+@media (max-width: 350px) {
+  .phone-details__images-wrapper {
+    width: 250px;
+    height: 250px;
+  }
+
+  .phone-details__images-wrapper>img {
+    width: 250px;
+    height: 250px;
+  }
+
+  .phone-details__details {
+    padding: 0;
   }
 }
