@@ -1,0 +1,11 @@
+@import url("./styles/navigation.scss");
+@import url("./styles/loader.scss");
+@import url("./styles/not-found-page.scss");
+@import url("./styles/phone-catalog.scss");
+@import url("./styles/home.scss");
+@import url("./styles/basket.scss");
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif; }
+
+/*# sourceMappingURL=App.css.map */

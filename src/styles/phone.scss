@@ -1,0 +1,69 @@
+.phone {
+  display: flex;
+  flex-direction: row;
+
+  border: 1px solid rgb(200, 200, 200);
+  border-radius: 5px;
+  
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+
+  max-width: 1000px;
+}
+
+.phone__image {
+  height: 100px;
+  width: 100px;
+}
+
+.phone__info {
+  margin-left: 15px;
+}
+
+.phone__info h2 {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin: 10px 0;
+  display: inline-block;
+
+  font-size: 18px;
+  color: black;
+
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.phone__info h2:hover {
+  color: orange;
+}
+
+@media (max-width: 1080px) {
+  .phone {
+    margin: 20px;
+  }
+}
+
+@media (max-width: 350px) {
+  .phone {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .phone__image {
+    height: 200px;
+    width: 200px;
+  }
+}
+
+@media (max-width: 280px) {
+  .phone__image {
+    height: 150px;
+    width: 150px;
+  }
+}
+
+@import url('./phone-details.scss');

@@ -1,0 +1,131 @@
+.basket__main {
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.basket__header {
+  color: orange;
+}
+
+.basket__item {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 20px 0 20px;
+  max-width: 1000px;
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.basket__item>div {
+  display: flex;
+}
+
+.basket__item img {
+  width: 200px;
+  height: 200px;
+}
+
+.basket__phone-name {
+  padding: 40px;
+
+  font-size: 20px;
+  color: orange;
+}
+
+.basket__quantity {
+  margin-top: 50px;
+
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+
+  border-top: 1px solid grey;
+  border-bottom: 1px solid grey;
+  box-sizing: border-box;
+
+  font-size: 20px;
+  color: orange;
+}
+
+.basket__quantity-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.basket__changing-quantity-button {
+  margin: 50px 0;
+  border: 1px solid grey;
+}
+
+.basket__delete-button {
+  margin: 50px 0 50px 50px;
+  color: red;
+  border: none;
+}
+
+.basket__delete-button:hover {
+  color: white;
+  background-color: red;
+}
+
+.basket__changing-quantity-button,
+.basket__delete-button {
+  width: 30px;
+  height: 30px;
+  font-size: 20px;
+  text-align: center;
+
+  cursor: pointer;
+  background-color: white;
+}
+
+.basket__changing-quantity-button:focus,
+.basket__delete-button:focus {
+  outline: none;
+}
+
+.basket__empty {
+  margin-top: 50px;
+  text-align: center;
+  font-size: 30px;
+  color: orange;
+}
+
+.basket__underline {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1000px;
+}
+
+@media (max-width: 1080px) {
+  .basket__item {
+    margin: 0 20px;
+  }
+
+  .basket__underline {
+    margin: 8px 40px;
+  }
+}
+
+@media (max-width: 700px) {
+  .basket__item {
+    display: block;
+    padding: 0;
+  }
+
+  .basket__item>div:not(:last-child) {
+    display: block;
+  }
+
+  .basket__item>div:last-child {
+    justify-content: space-around;
+  }
+
+  .basket__phone-name {
+    padding: 0 40px;
+  }
+}
